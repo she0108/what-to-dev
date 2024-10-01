@@ -1,37 +1,44 @@
-import { createTheme, createThemeContract } from "@vanilla-extract/css";
+import {
+  createGlobalTheme,
+  createGlobalThemeContract,
+  globalStyle,
+} from "@vanilla-extract/css";
 
-export const themeVars = createThemeContract({
-  color: {
-    white: "",
-    black: "",
-    main: {
-      100: "",
-      200: "",
-      300: "",
-      400: "",
-      500: "",
-      600: "",
-      700: "",
-      800: "",
-      900: "",
-    },
-    gray: {
-      50: "",
-      100: "",
-      200: "",
-      300: "",
-      400: "",
-      500: "",
-      600: "",
-      700: "",
-      800: "",
-      900: "",
-      950: "",
+export const themeVars = createGlobalThemeContract(
+  {
+    color: {
+      white: "",
+      black: "",
+      main: {
+        100: "",
+        200: "",
+        300: "",
+        400: "",
+        500: "",
+        600: "",
+        700: "",
+        800: "",
+        900: "",
+      },
+      gray: {
+        50: "",
+        100: "",
+        200: "",
+        300: "",
+        400: "",
+        500: "",
+        600: "",
+        700: "",
+        800: "",
+        900: "",
+        950: "",
+      },
     },
   },
-});
+  (_value, path) => `${path.join("-")}`
+);
 
-export const darkTheme = createTheme(themeVars, {
+createGlobalTheme(":root", themeVars, {
   color: {
     white: "#FFFFFF",
     black: "#000000",
@@ -62,33 +69,33 @@ export const darkTheme = createTheme(themeVars, {
   },
 });
 
-export const lightTheme = createTheme(themeVars, {
-  color: {
-    white: "#000000",
-    black: "#FFFFFF",
-    main: {
-      100: "#2E3753",
-      200: "#3B4C7E",
-      300: "#4961A9",
-      400: "#5676D4",
-      500: "#648BFF",
-      600: "#83A2FF",
-      700: "#A2B9FF",
-      800: "#C1D1FF",
-      900: "#E0E8FF",
-    },
-    gray: {
-      50: "#2B2D33",
-      100: "#36383D",
-      200: "#4D4E53",
-      300: "#626468",
-      400: "#797A7E",
-      500: "#8F9093",
-      600: "#A6A7A9",
-      700: "#BCBCBE",
-      800: "#D2D3D4",
-      900: "#E8E8E9",
-      950: "#F4F4F4",
+globalStyle(":root", {
+  "@media": {
+    "(prefers-color-scheme: dark)": {
+      vars: {
+        [themeVars.color.white]: "#000000",
+        [themeVars.color.black]: "#FFFFFF",
+        [themeVars.color.main[100]]: "#2E3753",
+        [themeVars.color.main[200]]: "#3B4C7E",
+        [themeVars.color.main[300]]: "#4961A9",
+        [themeVars.color.main[400]]: "#5676D4",
+        [themeVars.color.main[500]]: "#648BFF",
+        [themeVars.color.main[600]]: "#83A2FF",
+        [themeVars.color.main[700]]: "#A2B9FF",
+        [themeVars.color.main[800]]: "#C1D1FF",
+        [themeVars.color.main[900]]: "#E0E8FF",
+        [themeVars.color.gray[50]]: "#2B2D33",
+        [themeVars.color.gray[100]]: "#36383D",
+        [themeVars.color.gray[200]]: "#4D4E53",
+        [themeVars.color.gray[300]]: "#626468",
+        [themeVars.color.gray[400]]: "#797A7E",
+        [themeVars.color.gray[500]]: "#8F9093",
+        [themeVars.color.gray[600]]: "#A6A7A9",
+        [themeVars.color.gray[700]]: "#BCBCBE",
+        [themeVars.color.gray[800]]: "#D2D3D4",
+        [themeVars.color.gray[900]]: "#E8E8E9",
+        [themeVars.color.gray[950]]: "#F4F4F4",
+      },
     },
   },
 });
