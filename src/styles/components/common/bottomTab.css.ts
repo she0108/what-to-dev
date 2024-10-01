@@ -1,5 +1,5 @@
 import { style } from "@vanilla-extract/css";
-import { themeVars } from "../theme.css";
+import { themeVars } from "../../theme.css";
 
 export const wrap = style({
   width: "100%",
@@ -16,20 +16,36 @@ export const link = style({
   justifyContent: "center",
   alignItems: "center",
   gap: 2,
-  color: themeVars.color.gray[500],
   fontSize: 14,
-
-  selectors: {
-    "&:hover": {
-      color: themeVars.color.gray[600],
-    },
-  },
 });
 
-export const icon = style({
+export const inactiveLink = style([
+  link,
+  style({
+    color: themeVars.color.gray[500],
+    selectors: {
+      "&:hover": {
+        color: themeVars.color.gray[600],
+      },
+    },
+  }),
+]);
+
+export const activeLink = style([
+  link,
+  style({
+    color: themeVars.color.main[500],
+  }),
+]);
+
+export const inactiveIcon = style({
   color: themeVars.color.gray[500],
 
   selectors: {
     [`${link}:hover &`]: { color: themeVars.color.gray[600] },
   },
+});
+
+export const activeIcon = style({
+  color: themeVars.color.main[500],
 });
