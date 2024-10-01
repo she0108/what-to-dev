@@ -12,7 +12,7 @@ globalStyle("body", {
   background: themeVars.color.white,
   display: "flex",
   flexDirection: "column",
-  height: "100vh",
+  height: "100dvh",
 
   "@media": {
     "screen and (min-width: 600px)": {
