@@ -41,7 +41,7 @@ export const themeVars = createGlobalThemeContract(
 createGlobalTheme(":root", themeVars, {
   color: {
     white: "#FFFFFF",
-    black: "#000000",
+    black: "#202228",
     main: {
       100: "#E0E8FF",
       200: "#C1D1FF",
@@ -73,7 +73,7 @@ globalStyle(":root", {
   "@media": {
     "(prefers-color-scheme: dark)": {
       vars: {
-        [themeVars.color.white]: "#000000",
+        [themeVars.color.white]: "#202228",
         [themeVars.color.black]: "#FFFFFF",
         [themeVars.color.main[100]]: "#2E3753",
         [themeVars.color.main[200]]: "#3B4C7E",
