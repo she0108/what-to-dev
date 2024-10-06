@@ -1,18 +1,17 @@
 import { globalStyle } from "@vanilla-extract/css";
 import { themeVars } from "./theme.css";
 
-globalStyle("html, body", {
-  maxWidth: "100vw",
-  overflowX: "hidden",
-});
+globalStyle("html", { maxWidth: "100vw", overflowX: "hidden" });
 
 globalStyle("body", {
   WebkitFontSmoothing: "antialiased",
   MozOsxFontSmoothing: "grayscale",
+  maxWidth: "100vw",
   background: themeVars.color.white,
   display: "flex",
   flexDirection: "column",
   height: "100dvh",
+  position: "relative",
 
   "@media": {
     "screen and (min-width: 600px)": {

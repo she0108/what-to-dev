@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "../styles/global.css";
-import BottomTab from "@/components/common/BottomTab";
+import Sidebar from "@/components/common/Sidebar";
 
 const pretendard = localFont({
   src: "./fonts/PretendardVariable.woff2",
@@ -23,7 +23,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={pretendard.className}>
         {children}
-        <BottomTab />
+        <Sidebar />
       </body>
     </html>
   );

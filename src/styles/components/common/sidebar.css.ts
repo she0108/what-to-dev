@@ -2,27 +2,31 @@ import { style } from "@vanilla-extract/css";
 import { themeVars } from "../../theme.css";
 
 export const wrap = style({
-  width: "100%",
-  height: 68,
+  width: "fit-content",
+  height: "auto",
   display: "flex",
-  flexDirection: "row",
-  background: themeVars.color.white,
+  flexDirection: "column",
+  alignItems: "start",
+  position: "absolute",
+  top: 0,
+  left: -140,
 });
 
 export const link = style({
   display: "flex",
-  flexDirection: "column",
+  flexDirection: "row",
   flexGrow: 1,
   justifyContent: "center",
   alignItems: "center",
-  gap: 2,
-  fontSize: 14,
+  gap: 8,
+  fontSize: 16,
+  marginBottom: 20,
 });
 
 export const inactiveLink = style([
   link,
   style({
-    color: themeVars.color.gray[500],
+    color: themeVars.color.gray[400],
     selectors: {
       "&:hover": {
         color: themeVars.color.gray[600],
@@ -39,7 +43,7 @@ export const activeLink = style([
 ]);
 
 export const inactiveIcon = style({
-  color: themeVars.color.gray[500],
+  color: themeVars.color.gray[400],
 
   selectors: {
     [`${link}:hover &`]: { color: themeVars.color.gray[600] },

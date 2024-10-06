@@ -6,15 +6,16 @@ import {
   inactiveIcon,
   inactiveLink,
   wrap,
-} from "@/styles/components/common/bottomTab.css";
+} from "@/styles/components/common/sidebar.css";
 import Link from "next/link";
 import SearchIcon from "../icons/SearchIcon";
 import CommunityIcon from "../icons/CommunityIcon";
 import MypageIcon from "../icons/MypageIcon";
 import HomeIcon from "../icons/HomeIcon";
 import { usePathname } from "next/navigation";
+import Image from "next/image";
 
-const BottomTab: React.FC = () => {
+const Sidebar: React.FC = () => {
   const currentPath = usePathname();
 
   const getLinkClassName = (path: string) => {
@@ -27,23 +28,26 @@ const BottomTab: React.FC = () => {
 
   return (
     <nav className={wrap}>
+      <Link href="/">
+        <Image src="/DAVA.svg" width={100} height={100} alt="service logo" />
+      </Link>
       <Link className={getLinkClassName("/")} href="/">
-        <HomeIcon className={getIconClassName("/")} /> 홈
+        <HomeIcon className={getIconClassName("/")} /> Home
       </Link>
       <Link className={getLinkClassName("/search")} href="/search">
         <SearchIcon className={getIconClassName("/search")} />
-        탐색
+        Search
       </Link>
       <Link className={getLinkClassName("/community")} href="/community">
         <CommunityIcon className={getIconClassName("/community")} />
-        커뮤니티
+        Community
       </Link>
       <Link className={getLinkClassName("/mypage")} href="/mypage">
         <MypageIcon className={getIconClassName("/mypage")} />
-        마이페이지
+        Mypage
       </Link>
     </nav>
   );
 };
 
-export default BottomTab;
+export default Sidebar;
