@@ -5,6 +5,7 @@ import {
 } from "@/styles/components/common/searchBar.css";
 import SearchIcon from "../icons/SearchIcon";
 import { ChangeEventHandler, FC, KeyboardEventHandler } from "react";
+import Link from "next/link";
 
 interface SearchBarProps {
   placeholder?: string;
@@ -27,7 +28,6 @@ const SearchBar: FC<SearchBarProps> = ({
 
   return (
     <div className={container}>
-      <SearchIcon className={icon} />
       <input
         className={input}
         type="search"
@@ -36,6 +36,9 @@ const SearchBar: FC<SearchBarProps> = ({
         onChange={onValueChange}
         onKeyDown={handleKeyDown}
       />
+      <Link href="#">
+        <SearchIcon className={icon} />
+      </Link>
     </div>
   );
 };

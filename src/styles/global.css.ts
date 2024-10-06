@@ -15,7 +15,7 @@ globalStyle("body", {
 
   "@media": {
     "screen and (min-width: 600px)": {
-      width: 1024,
+      width: 800,
       margin: "auto",
     },
   },
