@@ -1,20 +1,20 @@
 import {
   image,
   imageContainer,
+  priceStyle,
   ratingStyle,
   star,
   tagGroup,
   tagStyle,
-  textContainer,
   titleStyle,
   wrapper,
-} from "@/styles/components/common/lectureListItem.css";
+} from "@/styles/components/common/lectureGridItem.css";
 import Image from "next/image";
 import Link from "next/link";
 import { FC } from "react";
 import StarIcon from "../icons/StarIcon";
 
-interface LectureListItemProps {
+interface LectureGridItemProps {
   id: string;
   title: string;
   tags: string[];
@@ -22,7 +22,7 @@ interface LectureListItemProps {
   imageUrl?: string;
 }
 
-const LectureListItem: FC<LectureListItemProps> = ({
+const LectureGridItem: FC<LectureGridItemProps> = ({
   id,
   title,
   tags,
@@ -34,22 +34,22 @@ const LectureListItem: FC<LectureListItemProps> = ({
       <div className={imageContainer}>
         <Image src={imageUrl} fill className={image} alt="" />
       </div>
-      <div className={textContainer}>
-        <p className={titleStyle}>{title}</p>
-        <div className={tagGroup}>
-          {tags.map((tag) => (
-            <li key={tag} className={tagStyle}>
-              {tag}
-            </li>
-          ))}
-          <li key="rating" className={ratingStyle}>
-            <StarIcon className={star} />
-            {rating}
+
+      <p className={titleStyle}>{title}</p>
+      <p className={priceStyle}>59000원</p>
+      <div className={tagGroup}>
+        {tags.map((tag) => (
+          <li key={tag} className={tagStyle}>
+            {tag}
           </li>
-        </div>
+        ))}
+        <li key="rating" className={ratingStyle}>
+          <StarIcon className={star} />
+          {rating}
+        </li>
       </div>
     </Link>
   );
 };
 
-export default LectureListItem;
+export default LectureGridItem;

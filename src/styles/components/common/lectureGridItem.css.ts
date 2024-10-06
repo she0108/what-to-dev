@@ -3,16 +3,18 @@ import { style } from "@vanilla-extract/css";
 
 export const wrapper = style({
   display: "flex",
+  flexDirection: "column",
 });
 
 export const imageContainer = style({
   position: "relative",
-  width: 90,
-  height: 90,
+  width: "auto",
+  height: 150,
+  marginBottom: 10,
 
   "@media": {
     "screen and (min-width: 600px)": {
-      width: 120,
+      width: "auto",
     },
   },
 });
@@ -22,18 +24,20 @@ export const image = style({
   borderRadius: 8,
 });
 
-export const textContainer = style({
-  padding: 8,
-  marginLeft: 6,
-  display: "flex",
-  flexDirection: "column",
-  justifyContent: "space-between",
-});
-
 export const titleStyle = style({
   fontSize: 16,
-  fontWeight: 500,
+  fontWeight: 400,
+  lineHeight: 1.4,
+  marginBottom: 4,
   color: themeVars.color.black,
+});
+
+export const priceStyle = style({
+  fontSize: 18,
+  fontWeight: 600,
+  lineHeight: 1.4,
+  color: themeVars.color.main[500],
+  marginBottom: 4,
 });
 
 export const tagGroup = style({
